@@ -30,28 +30,28 @@ export default function Home() {
       <main className={`${inter.className} w-screen`}>
         <div className="w-full max-w-screen-xl mb-4">
           <form
-            className="w-full flex justify-between gap-8 p-4"
+            className="flex justify-between w-full gap-8 p-4"
             onSubmit={onSubmit}
           >
             <Image
               src="/logo.svg"
               alt="logo"
-              className="ml-4 cursor-pointer rounded-lg"
+              className="ml-4 rounded-lg cursor-pointer"
               width={97}
               height={20}
             />
-            <div className="flex w-full max-w-screen-md border rounded-xl shadow">
+            <div className="flex w-full max-w-screen-md border shadow rounded-xl">
               <input
                 type="text"
                 name="search"
-                className="py-2 px-3 grow rounded-l-xl border-r outline outline-0 focus:shadow-inner focus:outline-1 focus:outline-gray-400/80"
+                className="px-3 py-2 border-r grow rounded-l-xl outline outline-0 focus:shadow-inner focus:outline-1 focus:outline-gray-400/80"
                 placeholder="Search"
               />
               <button className="flex items-center justify-center w-10 rounded-r-xl bg-gray-100/50">
                 <Image
                   src="/search.svg"
                   alt="search"
-                  className="cursor-pointer rounded-lg"
+                  className="rounded-lg cursor-pointer"
                   width={24}
                   height={24}
                 />
@@ -61,15 +61,15 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center px-8">
           <div className="w-full max-w-[1720px] flex">
-            <div className="grow mr-4">
+            <div className="mr-4 grow">
               <iframe
                 type="text/html"
-                className="w-full aspect-video outline-none"
+                className="w-full outline-none aspect-video"
                 src={`http://www.youtube.com/embed/${
                   videos[0]?.id?.videoId ?? ""
                 }?enablejsapi=1`}
               />
-              <p className="font-semibold text-xl py-4">
+              <p className="py-4 text-xl font-semibold">
                 {videos[0]?.snippet?.title ?? ""}
               </p>
               <p>{videos[0]?.snippet?.description ?? ""}</p>
@@ -79,7 +79,7 @@ export default function Home() {
               {videos.map((e) => (
                 <div
                   key={e.id?.videoId}
-                  className="flex gap-2 cursor-pointer p-2 hover:bg-gray-100/80 rounded-xl"
+                  className="flex gap-2 p-2 cursor-pointer hover:bg-gray-100/80 rounded-xl"
                   onClick={() => {
                     setVideos((state) => [
                       state.filter(
@@ -92,7 +92,7 @@ export default function Home() {
                   }}
                 >
                   <div className="min-w-fit">
-                    <Image
+                    <img
                       src={e.snippet.thumbnails.default.url}
                       alt={e.snippet.title}
                       width={e.snippet.thumbnails.default.width ?? 120}
